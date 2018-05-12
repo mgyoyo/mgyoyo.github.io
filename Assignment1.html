@@ -1,0 +1,1030 @@
+ <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Assignment 1</title>
+    <script type="text/javascript" src="d3/d3.js"></script>
+    <style type="text/css">
+        body {
+            max-width: 960px;
+            margin: auto;
+        }
+/*	<!--style part 1 and part 2-->	*/
+		.part12 li.qu {
+            color:Darkgray
+        }
+		.part12 div.an {
+    		max-width:900px;
+    		margin: auto;
+				}
+		.part12 p.re {
+            font-size:12px
+        }
+
+/*	<!--end style part 1 and part 2-->	*/
+        .part3 #newchart3 {
+            text-align: center;
+        }
+
+        .part3 form {
+            margin: 0 auto 10px auto;
+            float: left;
+            text-align: left;
+        }
+
+        .part3 #footer {
+            color: #8E8E8E;
+            line-height: 1.5em;
+            text-align: right;
+            margin: 8px 0 0 0;
+            overflow: hidden;
+        }
+
+        .part3 a.h2 {
+            color: #0F6F9F;
+            font-family: Georgia;
+            font-size: 36px;
+            font-weight: bold;
+            text-decoration: underline;
+            letter-spacing: -1px;
+            line-height: 34px;
+            margin: 0;
+        }
+
+        .part3 a.h2.title {
+            color: #202020;
+            f
+        }
+
+        .part3 a.post {
+            color: #0F6F9F;
+            text-decoration: none;
+        }
+
+        .part3 #newstitle a:hover {
+            color: #D00000;
+        }
+
+        .part3 #top a.title {
+            width: 688px;
+            color: #202020;
+            font-family: Georgia;
+            font-size: 72px;
+            font-style: italic;
+            font-weight: normal;
+            letter-spacing: -3px;
+            text-decoration: none;
+            margin: 0;
+        }
+
+        .part3 #top .buttons {
+            bottom: 24px;
+            right: 0;
+            text-align: right;
+        }
+
+        .part3 #top .buttons a {
+            color: #FFFFFF;
+            font-weight: bold;
+            text-transform: uppercase;
+            text-decoration: none;
+            background: #D00000;
+        }
+
+        .part3 #newsend {
+            font-family: Georgia;
+            font-size: 12px;
+            text-align: right;
+            border-top: 3px solid #202020;
+            border-bottom: 1px solid #202020;
+            padding: 8px 0;
+            overflow: hidden;
+        }
+
+        .part3 #newsend a.button {
+            color: #FFFFFF;
+            font-family: 'Lucida Grande', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-size: 10px;
+            font-weight: bold;
+            text-transform: uppercase;
+            text-decoration: none;
+            background: #D00000;
+            margin-left: 12px;
+        }
+
+        .part3 #newsend .rss {
+            font-family: 'Lucida Grande', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-size: 10px;
+            float: left;
+        }
+
+        .part3 #newsend .rss a {
+            color: #447777;
+            font-weight: bold;
+        }
+
+        .part3 #footer {
+            color: #8E8E8E;
+            line-height: 1.5em;
+            text-align: right;
+            margin: 8px 0 0 0;
+            overflow: hidden;
+        }
+
+        .part3 #footer form {
+            margin: 0 auto 10px auto;
+            float: left;
+        }
+
+        .part3 #footer form input.text {
+            width: 250px;
+        }
+
+        .part3 #footer a {
+            color: #8E8E8E;
+        }
+
+        .part3 #newstitle #bottom {
+            font-size: 12px;
+            padding: 8px 0;
+        }
+
+        .part3 #newstitle #bottom a {
+            color: #447777;
+            font-weight: bold;
+            text-decoration: none;
+        }
+/*	<!--end part 3 style-->	
+	<!--part 4 style-->*/
+        #newchart4 {
+            text-align: center;
+        }
+    	.linem{
+    			 fill: none;
+    			 stroke: skyblue;
+    			 stroke-width: 3;
+    			 }
+    	.linef{
+    			 fill: none;
+    			 stroke: tomato;
+    			 stroke-width: 3;
+    			 }
+		.point {
+				stroke : orangered;
+				stroke-width : 2;
+				fill: none;
+				fill-opacity: 0.5;
+				}
+		.circle {
+				fill: dodgerblue;
+				fill-opacity: 0.5;
+				}
+
+		.legend {
+			     padding: 5px;
+			     font: 10px sans-serif;
+			     background: yellow;
+			     box-shadow: 2px 2px 1px #888;
+		       }
+
+		.title {
+		       font: 13px sans-serif;
+		       }
+
+		#tooltip{
+			position: absolute;
+			text-align: center;
+			width: 100px;
+			height: 22px;
+            padding: 2px;
+        	font: 12px sans-serif;
+        	background: lightsteelblue;
+        	border: 20px;
+        	border-radius: 10px;
+        	pointer-events: none;
+		}
+
+		#tooltip.hidden {
+			display: none;
+		}
+
+		#tooltip p {
+			margin: 0;
+			font-family: sans-serif;
+			font-size: 10px;
+			line-height: 10px;
+		}
+/*	<!--end part 4 style-->*/
+    </style>
+</head>
+
+<body>
+	<!--style body part 1 and part 2-->	
+    <div class='part12'>
+		<div class = "an">
+		  <h2 id = "Part-1:-DAOST-Chapter-2-Questions" align = "center">Part 1: DAOST Chapter 2 Question</h2>
+
+			<ul>
+				<li style="color:#99999">Explain in your own words the point of the jitter plot.</li>
+				<p>Based on the dot plot,  jitter plot prevents getting a lot of overlapping points by shifting slight position randomly from its original position. In this way, we are able to obtain a better understanding of which values of data occur in relatively higher frequency.</p>
+				<li class="qu">Explain in your own words the point of figure 2-3. .</li>
+				<p>A histogram needs to be determined by both the bin width and the alignment of the bins, assume that we fixed the width of bins at 1, the start value of each sub-interval would influence the layout of histogram significantly. When values are categorized into sub-intervals (0.5,1.5], (1.5,2.5] and (2.5,3.5], the bottom panel shows a strong central peak and symmetric wings varies from the top panel, which put the same data into sub-intervals (1,2] and (2,3].</p>
+				<li class="qu">The author of DAOST likes KDEs (and think they're better than histograms). Create an excellent exercise: When can KDEs be misleading?</li>
+				<p>KEDs give limit information when the bandwidth is too narrow, also make misleading when too board. Another situation is the attributes have different weights.</p>
+				<li class="qu">I've discussed some strengths of the CDF - there are also weaknesses. Janert writes "[CDFs] have less intuitive appeal than histograms of KDEs". What does he mean by that?</li>
+				<p>Histograms or KDEs reveal intuitively the probability density over sub-intervals or bins which cover the range of the data, whereas CDF can't. However, this feature may mislead the judgement. So that, the process of calculate CDF could be considered quantitative statement that is difficult for histograms or KDEs to provide.</p>
+				<li class="qu">What is a <em>Quantile plot</em>? What is it good for. </li>
+				<p><em>Quantile plot</em> contains the same information comparing to CDF, but the x axis is percentage and y axis is independent variable. </p>
+				<p><em>Quantile plot</em> makes it easier to figure out the cumulative fraction of a certain value among the sorted independent variable.</p>
+				<li class="qu">How is a <em>Probablity plot</em> defined? What is it useful for? Have you ever seen one before?</li>
+				<p>Probability plot is used to examine whether a set of  empirical point is distributed according to theoretical distribution. </p>
+				<p>Take Gaussian distribution as an example, assume the cumulative distribution function of the data we suspect following Gaussian distribution function, afterwards apply the inverse of the Gaussian distribution to both sides of the equation. With the math derivation, we get the result that the points should form approximately a straight line if the data are plotted against a theoretical distribution.</p>
+				<p>Weibull distribution</p>
+				
+				<li class="qu">One of the reasons I like DAOST is that Janert is so suspicious of mean, median, and related summary statistics. Explain why one has to be careful when using those - and why visualization of the full data is always better. </li>
+				<p>In order to calculate mean, median and related summary statistics, distributions have to meet several assumptions that the distribution must be unimodal and data is symmetric without absurd outliers, otherwise simply calculation could give a wrong result. However, most datasets in real world are unable to behave that well. </p>
+				<p>With the visualization of the full data, one can get a overview how does the distribution behave. If there existed uncertainty on symmetry and outliers, we should favor median and percentile. Also, all data need to get sorted in order to find percentiles.</p>
+				<li class="qu">I love box plots. When are box plots most useful?</li>
+				<p>Box plots are most useful when apply comparison of several distributions. Box plot illustrates the general situation of data by specifying the location and width of distribution in a standard way.</p>
+				<li class="qu">The book doesn't mention violin plots. Are those better or worse than box plots? Why?</li>
+				<p>I would say violin plots are better. Because besides summary statistics ( mean/median and interquartile ranges) that plain box plots have, violin plots also indicate the presence of different peaks when the data distribution is multimodal[1].
+				</p>
+				
+			</ul>
+        </div>
+		<h2 id="Part-2:-DAOST-Chapter-3-Questions" align = "center">Part 2: DAOST Chapter 3 Questions</h2>
+			<ul>
+				<li class="qu">Looking at Fig 3-1, Janert writes "the data itself shows clearly that the amount of random noise in the data is small". What do you think his argument is?</li>
+				<p>The scatter plot in figure 3-1 explicitly shows that the points are spread evenly and the shapes are similar without sharp fluctuation or any significant outliers, which represents high possibility of systematic noise rather than random noise.</p>
+				<li class="qu">Can you think of a real-world example of a multivariate relationship like the one in Fig 3-3 (lower right panel)?</li>
+				<p>The relationship between blood sugar and body temperature.</p>
+				<li class="qu">What are the two methods Janert metions for smoothing noisy data? Can you think of other ones?</li>
+				<p>The methods are Splines which have an overall smoothness goal and LOESS which concerns the response to local details in the data set.</p>
+				<p>Moving averages which use variable bins containing a fixed number of observations, rather than fixed-width bins with a variable number of observations.</p>
+				<li class="qu">What are residuals? Why is it a good idea to plot the residuals of your fit?</li>
+				<p> Residuals are the values sclatting near a smoothed approximation data trend. Plotting the residuals can dig into the data, like figuring out whether the model applied to the data appropriately or not.</p>
+				<li class="qu">Explain in your own words the point of the smooth tube in figure 3-7.</li>
+				<p>Three smooth representations, one of entire data set “trend”, one smooth represent of the points above the entire “trend”, one of the points below the entire “trend”.  The majority points are between the above and below bands. A more intensive analysis than just one entire approximation.</p>
+				<li class="qu">What kind of relationships will a semi-log plot help you discover?</li>
+				<p>Exponential relationship of data.</p>
+				<li class="qu">What kind of functions will loglog plots help you see?</li>
+				<p> Logarithms of y is linear function of logx with a slope of exponent k.</p>
+				<li class="qu">What the h#ll is <em>banking</em> and what element from our visual system does it use to help us see patterns? What are potential problems with banking?</li>
+				<p>Banking is a graphical method that works directly on graph by modifying aspect ratio.
+				Human perception</p>
+				<p>The problem is that sometimes the slopes of 45 degree would be a constraint when adjusting the graph which turns out to be difficult to be read.</p>
+				<li class="qu">I think figure 3-14 makes an important point about linear fits that is rarely made. What is it? </li>
+				<p>Depending on how you regress the two variables, there could be two different resulting straight lines. This demonstrates the conception of linear regression provides the “best fit” is not a accurate description. </p>
+				<li class="qu">Summarize the discussion of <em>Graphical Analysis</em> and <em>Presentation Graphics</em> on pp. 68-69 in your own words.</li>
+				<p>Graphical analysis is to work with raw dataset, drawing tons of graphs in different style, range, and aspect to discovery investigate the information about underlying dataset. No need to decorate the graph, just to find the clue under the data. </p>
+				<p>Presentation graphics is using graphs to illustrate the information about the dataset have found in the graphical analysis step. Assuming the presentation is given to others who know nothing about the dataset before, the presentation graphics should as clear, reliable, compact,  human-friendly, and pleasant.</p>
+			</ul>
+
+		<h4 id = "Reference" align = "center">Reference</h2>
+			<p class = "re">[1]<cite>Murray, Scott. Interactive Data Visualization for the Web: an Introduction to Designing with D3.</cite></p>
+			<p class = "re">[2]<cite>"VIOLIN PLOT". NIST DataPlot. National Institute of Standards and Technology. 2015-10-13.</cite></p>
+			<p class = "re">[3]<cite>Data Analysis with Open Source Tools, by Janert Philipp K., O'Reilly, 2011, pp. 11-39.</cite></p>
+			<p class = "re">[4]<cite>Probability Plot. (n.d.). Retrieved February 25, 2018, from http://www.itl.nist.gov/div898/handbook/eda/section3/probplot.htm</cite></p>
+			<p class = "re">[5]<cite>Semi-log plot. (2018, February 17). Retrieved February 25, 2018, from https://en.wikipedia.org/wiki/Semi-log_plot</cite></p>
+	</div>
+    <!--end body part 1 and part 2-->
+	<!--start body part 3-->
+    <div class='part3'>
+        <div class='row'>
+            <div id="part3text">
+                <h2 id = "Part 3: Viz 1" align = "center">Part 3: Viz 1</h2>
+                <div class="plagtext">
+                    <p>This is a reproduction of
+                        <a href="http://iquantny.tumblr.com/post/129373499164/this-is-quantifiably-the-best-month-to-go-to-the">http://iquantny.tumblr.com/post/129373499164/this-is-quantifiably-the-best-month-to-go-to-the</a>
+                    </p>
+                </div>
+            </div>
+            <div id="top">
+                <a href="http://iquantny.tumblr.com/" class="title">I Quant NY</a>
+
+                <div class="buttons">
+                    <a href="http://iquantny.tumblr.com/subscribe" class="button">Mailing List</a>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="http://iquantny.tumblr.com/rss" class="button">RSS</a>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="http://iquantny.tumblr.com/archive" class="button">Archive</a>
+                </div>
+            </div>
+
+            <div id="newstitle">
+                <hr>
+                <div id="bottom">
+                    Quantitative Analysis of NYC Open Data: Every data set that the city releases tells a story. This blog is all about telling
+                    those stories, one data set at a time.&nbsp;&nbsp;
+                    <br>
+                    <br>
+                    <a href="http://iquantny.tumblr.com/about">About Me</a>&nbsp;&nbsp;
+                    <a href="http://iquantny.tumblr.com/aboutyou">About You</a>&nbsp;&nbsp;
+                    <a href="http://iquantny.tumblr.com/interviews">Interviews</a>&nbsp;&nbsp;
+                    <a href="http://iquantny.tumblr.com/press">Press</a>&nbsp;&nbsp;
+                    <a href="http://iquantny.tumblr.com/topics">Topics</a>&nbsp;&nbsp;
+                    <a href="http://iquantny.tumblr.com/subscribe">Subscribe</a>&nbsp;&nbsp;
+
+                </div>
+                <hr noshade>
+                <h5>SEPTEMBER 18, 2015</h5>
+            </div>
+
+            <div id="newsbody1">
+                <a href="http://iquantny.tumblr.com/post/129373499164/this-is-quantifiably-the-best-month-to-go-to-the" class="h2 title">This is Quantifiably the Best Month to go to the Farmers Market</a>
+
+                <p></p>
+                <p>As part of a homework assignment, I ask my students at Pratt to go out and chart something of interest to
+                    them, and
+                    <a href="https://t.umblr.com/redirect?z=https%3A%2F%2Fwww.linkedin.com%2Fin%2Fkvsavarese&amp;t=NmE2YmYyYjU4NTI3MTFhYWFiMWE1ZjFhNzc1NmUzMmE0ZDQ4OGM2NSwxeHM2a1phNg%3D%3D&amp;b=t%3A5jlxwUw4OZ-2SbgNDPgKMQ&amp;p=http%3A%2F%2Fiquantny.tumblr.com%2Fpost%2F129373499164%2Fthis-is-quantifiably-the-best-month-to-go-to-the&amp;m=1">Katherine Savarese</a> came back with a simple chart about farmers markets that I loved- it inspired
+                    this post.</p>
+
+                <p>You probably know that farmers markets are a staple across
+                    <a href="https://t.umblr.com/redirect?z=http%3A%2F%2Fwww.grownyc.org%2Ffiles%2Fgmkt%2Fmap.pdf&amp;t=MGM4YmRjZjQ2ZmFmYzBiYmMzMmY5NDU2MTdiNzMzMmYyOWQ5YjQ2ZSwxeHM2a1phNg%3D%3D&amp;b=t%3A5jlxwUw4OZ-2SbgNDPgKMQ&amp;p=http%3A%2F%2Fiquantny.tumblr.com%2Fpost%2F129373499164%2Fthis-is-quantifiably-the-best-month-to-go-to-the&amp;m=1">all five boroughs</a> of New York City, but September happens to be a very special month. Why is that?
+                    &nbsp;Well, it turns out September is the month with the most unique types of fresh produce- forty three
+                    to be exact.</p>
+
+                <p>To show the current offerings, we charted how many types of fruits and vegetables are available by month,
+                    and showed if they were fresh or from storage.&nbsp;</p>
+            </div>
+
+
+            <div id="newchart3">
+                <div id="chartname3">
+                    <h2>NYC Green Markets - Unique Produce Type</h2>
+                </div>
+                <div class='radio'>
+                    <label class='radio-inline'>
+                        <input type="radio" name="fresh" value="freshfruit" checked="checked"> Fresh Fruit
+                    </label>
+                    <label class='radio-inline'>
+                        <input type="radio" name="fresh" value="freshvegetable"> Fresh Vegetable
+                    </label>
+                    <label class='radio-inline'>
+                        <input type="radio" name="fresh" value="storagefruit"> Storage Fruit
+                    </label>
+                    <label class='radio-inline'>
+                        <input type="radio" name="fresh" value="storagevegetable"> Storage Vegetable
+                    </label>
+                    <label class='radio-inline'>
+                        <input type="radio" name="fresh" value="showAllS"> Show All(Stacked)
+                    </label>
+                    
+                </div>
+                <svg class='chart3'>
+                </svg>
+            </div>
+
+            <div id="newsbody2">
+                <p>If you miss the month of September, you might be behind the fruit curve, but there are plenty more months
+                    of vegetables left. The chart shows that fresh vegetables are available 9 out of 12 months, but fruit
+                    is only available 5 out of 12. Now if only we could quantify how delicious the produce is… </p>
+                <p>--</p>
+                <p>Data from:
+                    <a href="http://www.grownyc.org/greenmarket/whatsavailable">http://www.grownyc.org/greenmarket/whatsavailable</a>
+                </p>
+                <br>
+            </div>
+
+
+            <div id="newsend">
+                <div class="rss">RSS feed:
+                    <a href="http://iquantny.tumblr.com/rss">http://iquantny.tumblr.com/rss</a>
+                </div>
+
+
+                <a href="http://iquantny.tumblr.com/post/133941169409" class="button">Previous post</a>
+                <a href="http://iquantny.tumblr.com/post/129262809214" class="button">Next post</a>
+
+            </div>
+
+
+
+            <div id="footer">
+                <form action="http://iquantny.tumblr.com/search" method="get">
+                    <input type="text" class="text" name="q" value="">
+                    <input type="submit" value="Search">
+                </form>
+                Theme is
+                <a href="http://www.tumblr.com/theme/467">The Atlantic</a> by
+                <a href="http://www.petervidani.com/">Peter Vidani</a> for
+                <a href="http://www.tumblr.com/">Tumblr</a>.
+            </div>
+
+
+        </div>
+    </div>
+	<!--part 4 body-->
+    <div>
+        	<div id="part4">
+              <h2 id = "Part 4: Viz 2" align = center>Part 4: Viz 2</h2>
+              <div id="part4text">
+                <p style="color:red; text-align: center;">
+                    eeeeee,something happens unexpectedly, we failed to fix this, please have a look at the separate page for part 4.
+                    </p>
+                  <p style="color:red;text-align: center;">
+                    <a href=".\\index_t_f_l_title.html">One with tooltip</a>
+                  </p>
+                    <p style="color:red;text-align: center;">Thank you :)</p>
+            </div>
+            </div>
+            
+			 <div id="newchart4">
+                <div id="chartname4">
+                    <h2>Winning times of the Boston Marathon</h2>
+                </div>
+                <div class='radio'>
+                    <label class='radio-inline'>
+                        <input type="radio" name="fresh" value="Men" checked="checked"> Men
+                    </label>
+                    <label class='radio-inline'>
+                        <input type="radio" name="fresh" value="Women"> Women
+                    </label>
+                  
+                    <label class='radio-inline'>
+                        <input type="radio" name="fresh" value="showAllS"> Show All
+                    </label>
+                </div>
+            </div>
+            <div id="tooltip" class="hidden">
+                <p>Year & Record</p>
+                <p><span id="valuet"></span></p>
+            </div>
+            
+
+    		
+    </div>
+<!--         </div> -->
+
+<script type="text/javascript">
+    // Your beautiful D3 code will go here
+
+    d3.select("input[value=\"freshfruit\"]").property("checked", true);
+
+
+    d3.csv("lab3.csv", function (error, data) {
+        if (error) throw error;
+
+        var freshfruitData = [];
+        var freshvegetableData = [];
+        var storagefruitData = [];
+        var storagevegetableData = [];
+
+        for (var i = 0; i < data.length; i++) {
+            if (data[i]["Index"] === "0") {
+                freshfruitData.push(data[i]);
+            } else if (data[i]["Index"] === "1") {
+                freshvegetableData.push(data[i]);
+            } else if (data[i]["Index"] === "2") {
+                storagefruitData.push(data[i]);
+            } else if (data[i]["Index"] === "3") {
+                storagevegetableData.push(data[i]);
+            }
+        }
+
+        var monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
+            "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+        ];
+        var date2 = [];
+
+        monthNames.forEach(element => {
+            date2.push({ Month: element, total: 0 });
+        });
+
+        date2.forEach(element => {
+            data.forEach(element2 => {
+                if (element.Month == element2.Month) {
+                    var name = "123";
+                    switch (element2.Index) {
+                        case '0':
+                            name = "Fresh Fruit";
+                            break;
+                        case '1':
+                            name = "Fresh Vegetable";
+                            break;
+                        case '2':
+                            name = "Storage Fruit";
+                            break;
+                        case '3':
+                            name = "Storage Vegetable";
+                            break;
+                    }
+                    element[name] = parseInt(element2.Count);
+                    element.total += parseInt(element2.Count);
+                }
+            })
+        });
+
+        console.log(date2);
+
+ 
+        var showAll = [freshfruitData, freshvegetableData, storagefruitData, storagevegetableData];
+
+
+        d3.selectAll("input").on("change", change);
+
+        function change() {
+            var value = this.value;
+            if (value === "freshfruit") {
+                update(freshfruitData);
+            } else if (value === "freshvegetable") {
+                update(freshvegetableData);
+            } else if (value == "storagefruit") {
+                update(storagefruitData);
+            } else if (value == "storagevegetable") {
+                update(storagevegetableData);
+            } else if(value == "showAllS"){
+                update2(date2);
+            }
+        }
+
+        function update2(dataInside) { //stacked data
+            // //set domain for the x axis
+            xChart.domain(dataInside.map(function (d) { return d.Month; }));
+
+            // //set domain for y axis
+            yChart.domain([0, d3.max(dataInside, function (d) { return d.total; })]).nice();
+
+
+            //console.warn(yChart(9));
+            z.domain(['Fresh Fruit', 'Fresh Vegetable', 'Storage Fruit', 'Storage Vegetable']);
+
+            // //get the width of each bar 
+            var barWidth = width / dataInside.length;
+
+            // //select all bars on the graph, take them out, and exit the previous data set. 
+            // //then you can add/enter the new data set
+            var svg3 = chart3.selectAll(".bar")
+                .remove()
+                .exit()
+                .data(d3.stack().keys(['Fresh Fruit', 'Fresh Vegetable', 'Storage Fruit', 'Storage Vegetable'])(dataInside));
+
+            // //now actually give each rectangle the corresponding data
+
+            svg3.enter()
+                .append("g")
+                .attr("fill", function (d) { return z(d.key); })
+                .selectAll("rect")
+                .data(function (d) { return d; })
+                .enter()
+                .append("rect")
+                .attr("class", "bar")
+                .attr("x", function (d) { return xChart(d.data.Month); })
+                .attr("y", function (d) { return yChart(d[1]); })
+                .attr("height", function (d) { return yChart(d[0]) - yChart(d[1]); })
+                .attr("width", barWidth - 1)
+                
+                .style("opacity", 0)
+                .transition()
+                .duration(750)
+                .style("opacity", 1);
+
+            //left axis
+            chart3.select('.yAxis')
+                .call(yAxis)
+
+            //show legend
+            var legend3 = chart3.append("g")
+                .attr("class", "tips")
+                .attr("font-family", "sans-serif")
+                .attr("font-size", 10)
+                .attr("text-anchor", "end")
+                .selectAll("g")
+                .data(['Fresh Fruit', 'Fresh Vegetable', 'Storage Fruit', 'Storage Vegetable'].slice().reverse())
+                .enter().append("g")
+                .attr("transform", function (d, i) { return "translate(0," + i * 20 + ")"; });
+            //show color index
+            legend3.append("rect")
+                .attr("x", width - 19)
+                .attr("width", 19)
+                .attr("height", 19)
+                .attr("fill", z);
+
+            //show index name
+            legend3.append("text")
+                .attr("x", width - 24)
+                .attr("y", 9.5)
+                .attr("dy", "0.32em")
+                .text(function (d) { return d; });
+
+        }//end update
+
+        
+
+        function update(data) { //show first 4 data separetely
+            //set domain for the x axis
+            xChart.domain(data.map(function (d) { return d.Month; }));
+            //set domain for y axis
+            yChart.domain([0, d3.max(data, function (d) { return +d.Count; })]);
+
+            //get the width of each bar 
+            var barWidth = width / data.length;
+
+            //select all bars on the graph, take them out, and exit the previous data set. 
+            //then you can add/enter the new data set
+            var svg3 = chart3.selectAll(".bar")
+                .remove()
+                .exit()
+                .data(data)
+            chart3.selectAll(".tips").remove();
+
+            //now actually give each rectangle the corresponding data
+
+
+            svg3.enter()
+                .append("rect")
+                .attr("class", "bar")
+                .attr("x", function (d, i) { return i * barWidth + 1 })
+                .attr("y", function (d) { return yChart(d.Count); })
+                .attr("width", barWidth - 1)
+                .attr("height", function (d) { return height - yChart(d.Count); })
+                .attr("fill", function (d) {
+                    if (d.Index === "0") {
+                        return "#98abc5";
+                    } else if (d.Index === "1") {
+                        return "#8a89a6";
+                    } else if (d.Index === "2") {
+                        return "#7b6888";
+                    } else if (d.Index === "3") {
+                        return "#6b486b";
+                    }
+                })
+
+                .style("opacity", 0)
+                .transition()
+                .duration(750)
+                .style("opacity", 1)
+                ;
+
+            //left axis
+            chart3.select('.yAxis')
+                .call(yAxis)
+
+            //bottom axis
+            chart3.select('.xAxis')
+                .attr("transform", "translate(0," + height + ")")
+                .call(xAxis)
+                .selectAll("text")
+                .style("text-anchor", "end")
+                .attr("dx", "-.8em")
+                .attr("dy", ".15em")
+                .attr("transform", function (d) {
+                    return "rotate(-65)";
+                })
+                ;
+
+        }//end update
+
+        //set up chart
+        var margin = { top: 20, right: 20, bottom: 55, left: 50 };
+        var width = 600;
+        var height = 400;
+
+        var chart3 = d3.select(".chart3")
+            .attr("width", width + margin.left + margin.right)
+            .attr("height", height + margin.top + margin.bottom)
+            .append("g")
+            .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+        var xChart = d3.scaleBand()
+            .rangeRound([0, width]);
+
+        var yChart = d3.scaleLinear()
+            .rangeRound([height, 0]);
+
+
+        var z = d3.scaleOrdinal().range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b"]);
+
+        var xAxis = d3.axisBottom(xChart);
+        var yAxis = d3.axisLeft(yChart);
+
+        //set up axes
+        //left axis
+        chart3.append("g")
+            .attr("class", "yAxis")
+            .call(yAxis)
+
+        //bottom axis
+        chart3.append("g")
+            .attr("class", "xAxis")
+            .attr("transform", "translate(0," + height + ")")
+            .call(xAxis)
+            .selectAll("text")
+            .style("text-anchor", "end")
+            .attr("dx", "-.8em")
+            .attr("dy", ".15em")
+            .attr("transform", function (d) {
+                return "rotate(-65)";
+            });
+
+        //add labels
+        chart3
+            .append("text")
+            .attr("transform", "translate(-35," + (height + margin.bottom) / 2 + ") rotate(-90)")
+            .text("# of Unique Kinds of Produce");
+
+        chart3
+            .append("text")
+            .attr("transform", "translate(" + (width / 2) + "," + (height + margin.bottom - 10) + ")")
+            .text("Month");
+
+        //use freshfruitData to begin with
+        update(freshfruitData);
+    });
+	
+	//end part 3 body
+	
+    //start part 4 body
+
+		var w = 1050 ;
+		var h = 600 ;
+		var padding = 70 ;
+
+		var dataset_m, dataset_f, xScale, yScale, xAxis, yAxis, linef, linem;
+
+
+
+		//Convert from string to float & int
+
+		var rowConverter_m = function(d) {
+			return {
+			Year_m : parseInt(d.Year),
+			Hour_m : parseFloat(d.Timem),
+
+			Year_f : parseInt(d.Yearf),
+			Hour_f : parseFloat(d.cTimef)
+			};
+		}
+
+		
+		//Load in the data
+		d3.csv("man1c.csv", rowConverter_m, function(data) {
+			//console.log(data);
+			dataset_m = data;
+			// <!---man fit Aman = -0.32144489868998233 Bman = 770.31098654173229--->
+			// <!---woman fit Awoman = -2.9962043478260001 Bwoman = 6093.0595144925801--->
+			  				//Create scale functions
+				xScale = d3.scaleLinear()
+							   .domain([
+									d3.min(dataset_m, function(d) { return d.Year_m; }),
+									d3.max(dataset_m, function(d) { return d.Year_m; }) + 4.7
+								])
+							   .range([padding, w]);
+
+				yScale = d3.scaleLinear()
+								.domain([
+				 					d3.min(dataset_m, function(d) { return d.Hour_m; }),
+				 					d3.max(dataset_m, function(d) { return d.Hour_f; }) + 2
+			 					])
+								.range([h - padding, 0]);
+
+
+								//Define axes
+								xAxis = d3.axisBottom()
+											 .scale(xScale)
+											 .ticks(10);
+
+								//Define Y axis
+								yAxis = d3.axisLeft()
+											 .scale(yScale)
+											 .ticks(10);
+
+				//Define line generator
+				linef = d3.line()
+							.x(function(d) { return xScale(d.Year_f); })
+							.y(function(d) { return yScale(d.Hour_f); });
+                //******
+				linem = d3.line()
+							.x(function(d) { return xScale(d.Year_m); })
+							.y(function(d) { return yScale(d.Hour_m); });
+
+			//svg
+
+			var svg = d3.select("body")
+						.append("svg")
+						.attr("width", w)
+						.attr("height", h);
+
+			//scatterplot
+
+
+						svg.selectAll("circle")
+									.data(dataset_m)
+									.enter()
+									.append("circle")
+									.attr("cx", function(d) {
+										return xScale(d.Year_m);
+									})
+							    .attr("cy", function(d) {
+						         return yScale(d.Hour_m);
+									 })
+							    .attr("r", 5)
+								  .attr("class", "circle")
+								  .on("mouseover", function(d){
+
+										var xPosition = parseFloat(d3.select(this).attr("cx")) + 2;
+										var yPosition = parseFloat(d3.select(this).attr("cy")) + 2;
+
+										d3.select("#tooltip")
+										.transition()
+										.duration(200)
+										.style("opacity", .7);
+										d3.select("#tooltip")
+											.style("left", xPosition + "px")
+											.style("top", yPosition + "px")
+											.select("#valuet")
+											.text(d.Year_m + ' : ' + d.Hour_m + ' min');
+
+
+										//Show the tooltip
+										d3.select("#tooltip").classed("hidden", false);
+
+								   })
+								   .on("mouseout", function() {
+										 d3.select("#tooltip")
+ 										.transition()
+ 										.duration(200)
+
+										//Hide the tooltip
+										d3.select("#tooltip").classed("hidden", true);
+
+									})
+                                   ;
+
+                    //add women point
+					svg.selectAll("point")
+									.data(dataset_m)
+									.enter()
+									.append("circle")
+									.attr("cx", function(d) {
+										return xScale(d.Year_f);
+									})
+							    .attr("cy", function(d) {
+						         return yScale(d.Hour_f);
+									 })
+							    .attr("r", 5)
+								.attr("class", "point")
+								.on("mouseover", function(d){
+									var xPosition = parseFloat(d3.select(this).attr("cx")) + 2;
+									var yPosition = parseFloat(d3.select(this).attr("cy")) + 2;
+
+									d3.select("#tooltip")
+									.transition()
+									.duration(200)
+									.style("opacity", .7);
+
+									d3.select("#tooltip")
+										.style("left", xPosition + "px")
+										.style("top", yPosition + "px")
+										.select("#valuet")
+										.text(d.Year_f + ' : ' + d.Hour_f + ' min');
+
+
+									//Show the tooltip
+									d3.select("#tooltip").classed("hidden", false);
+
+								 })
+								 .on("mouseout", function() {
+									 d3.select("#tooltip")
+									.transition()
+									.duration(200)
+
+									//Hide the tooltip
+									d3.select("#tooltip").classed("hidden", true);
+
+								})
+                                 ;
+
+
+
+
+
+					
+		
+					//Create linef
+					svg.append("path")
+						.datum(dataset_m)
+						.attr("class", "linef")
+						.attr("d", linef);
+					//Create linef**********
+					svg.append("path")
+						.datum(dataset_m)
+						.attr("stroke","skyblue")
+                        .attr("class", "linem")
+						.attr("d", linem);
+
+
+						//Create fit man
+						svg.append("line")
+						//(1990,124.54302126670075)(1900,158.49388185502664)
+							.attr("x1",function(d) {
+											return xScale(1990);
+										})
+							.attr("y1",function(d) {
+											return yScale(130.63563814866745);
+										})
+							.attr("x2",function(d) {
+											return xScale(1897);
+										})
+							.attr("y2",function(d) {
+											return yScale(160.53001372683582);
+										})
+							.style("stroke-dasharray", ("3, 3"))
+							.attr("stroke","gray")
+							.attr("stroke-width",2);
+						//Create fit woman
+						svg.append("line")
+						//(2017,131.76983308732247)(1966,179.73824382774183)
+							.attr("x1",function(d) {
+											return xScale(1990);
+										})
+							.attr("y1",function(d) {
+											return yScale(130.61286231883969);
+										})
+							.attr("x2",function(d) {
+											return xScale(1966);
+										})
+							.attr("y2",function(d) {
+											return yScale(202.52176666666401);
+										})
+							.style("stroke-dasharray", ("3, 3"))
+							.attr("stroke","gray")
+							.attr("stroke-width",2);
+				//Create axes
+				svg.append("g")
+					.attr("class", "axis")
+					.attr("transform", "translate(0," + (h - padding) + ")")
+					.call(xAxis);
+					
+					
+
+				svg.append("g")
+					.attr("class", "axis")
+					.attr("transform", "translate(" + padding + ",0)")
+					.call(yAxis);
+
+
+
+  // add legend Men
+			 var legend_m = svg.append("g")
+	 			 .attr("class", "legend")
+	        //.attr("x", w - 65)
+	        //.attr("y", 25)
+	        //.attr("height", 100)
+	        //.attr("width", 100)
+					.attr("transform", function (d, i) { return "translate(0," + i * 20 + ")"; });
+
+
+	 			legend_m.selectAll('rect')
+	       .data(dataset_m)
+	       .enter()
+	 			.append("rect")
+	       .attr("x", w - 80)
+	       .attr("y", 30)
+	       .attr("width", 30)
+	       .attr("height", 20)
+	       .style("fill", "dodgerblue")
+				 .style("opacity", .7);
+
+			 legend_m.selectAll('text')
+				.data(dataset_m)
+				.enter()
+			  .append("text")
+				.attr("x", w - 40)
+				.attr("y",44)
+			  .text("Men");
+//add legend Women
+				var legend_f = svg.append("g")
+ 	 			 .attr("class", "legend")
+
+ 					.attr("transform", function (d, i) { return "translate(0," + i * 20 + ")"; });
+
+
+ 	 			legend_f.selectAll('rect')
+ 	       .data(dataset_m)
+ 	       .enter()
+ 	 			.append("rect")
+ 	       .attr("x", w - 80)
+ 	       .attr("y", 70)
+ 	       .attr("width", 30)
+ 	       .attr("height", 20)
+ 	       .style("fill", "orangered")
+				 .style("opacity", .5);
+
+ 			 legend_f.selectAll('text')
+ 				.data(dataset_m)
+ 				.enter()
+ 			  .append("text")
+ 				.attr("x", w - 40)
+ 				.attr("y",84)
+ 			  .text("Women");
+
+			});
+	<!--end part 4 body-->
+
+</script>
+
+</body>
+
+</html>
