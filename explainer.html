@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Explainer page</title>
+		<script type="text/javascript" src="d3/d3.js"></script>
+		<style type="text/css">
+
+		body {
+				max-width: 1100px;
+				margin: auto;
+				font-size: 1.2em;
+		}
+
+		table
+
+     {
+
+         border-collapse :collapse ;
+				 max-width: 1100px;
+ 				 margin: auto;
+     }
+
+     th,td
+
+     {
+
+         width:100px;
+
+         height:40px;
+
+         border :1px solid black;
+
+         font-size:12px;
+
+         text-align :center;
+
+     }
+
+    </style>
+	</head>
+	<body>
+  <div id="headings">
+    <h1 align="center">Stories Behind Airbnb NYC 2017</h1>
+		<p align="center">The project to investigate potential differences in Airbnb price, with respect to location, room type, guests, and other features.</p>
+  </div>
+
+
+  <div id="Motivation">
+    <h2>Motivation</h2>
+          <p>In this project, we look at the distribution of the price of accommodations listed on Airbnb in New York City. Our dataset contains the Summary information and metrics for listings in New York City, which was compiled on 04 March, 2018.As a young and growing company, in some situation, Airbnb is a better choice for travellers who would like to enjoy an authentic local life of a place, comparing to old-school  stereotype hotels. This dataset providing the information that help to telling a story to users that describe geographical overviews of the distribution of listings.With sharing the accommodating markets with traditional hotel, Airbnb affect the city’s housing apply and affordability. With our visualization, users would obtain a sense of the key variables of selecting optimized choice, for example, for a certain number of people, find the suitable room type with best price.</p>
+  </div>
+
+	<div id="Basic stats">
+    <h2>Basic stats</h2>
+		     <p>This dataset contains 22 attributes, such as room id and host. However, concerning to the question we would like to figure out. We only focus on room type, borough, the maximum occupancy in the apartment, price of the listings and the usage of specific GPS/coordinates.We have using the Airbnb Dataset from Tom SLee, but since some of the data is a bit outlier. For example, the price per night is over 1000USD is deleted.After cleaning, there is 41138 listings in the dataset. The average price of an accommodation is close to 130.80 USD per day, but that varied a lot based on the locations. As we plotted in the bar chart, the mean prices in USD is significant different in each borough. The average price of Manhattan is the highest whereas Bronx is with the lowest price.</p>
+  </div>
+
+	<div id="Genre">
+    <h2>Genre</h2>
+		    <p>In this project, we chose to use Partitioned Poster genre combining to annotated chart. For visual structuring, our design applied “checklist” Progress Tracker to orient users. And we select color scheme to direct users attention to concentrate on the element we wanted to address. And to narrative structure, the ordering of our visualization is linear but users could also view in random access. Users can manipulate the filter and interact the hover details. The labels and legends works as annotations convey the detail descriptions of each listing.</p>
+  </div>
+
+	<div id="Visualizations">
+		<h2>Visualizations</h2>
+		    <p>First of all, we plot the different prices of the New York on five boroughs, the prices are represented by small dots assigned into 6 categories marked by sequential color map from light to dark red, as shown in legend. Intergrated with a brushed histogram of the prices, both the distribution of the location and distribution of the price are demonstrated when moving the brush.  Observing the transition comes to the conclusion that, Manhattan and the north area of Brooklyn are with the highest density of accommodation from low price to high prices. Combining this with the average bar chart mention in previous section, we come to the fact that most of the listings with the prices around 100 USD can be find all over the New York, however, accommodations with higher prices are centered in Manhattan and Brooklyn. Additionally, another geomap with filter is created for the users to narrow down their  needs on different room types or number of persons. From which we can see that, most common type is “entire apartment”, which cluster is mainly located in Manhattan and Brooklyn and the next place is “private rooms”, “shared rooms” counts the least.
+</p>
+	</div>
+
+	<div id="Discussion">
+		<h2>Discussion</h2>
+		    <p>In this project, we visualized the distribution of Airbnb listings’ prices using D3 to render the map in general and bar chart to explain the detail. All the graphs are notated with a tooltip to address the details, moreover, the geomap is also implemented with interactive filters for users to choose what to show on the map. Admittedly, more aspects should be improved for more effective and intuitive communication with users. We should apply more method to analysis the data for better understanding and deeper insight that pursuing a more compelling story plot. Now we simply plotted the differences by boroughs, but better data mining could lead us to illustrate why these differences exist. Due to the implementation limitation, we failed to zoom in for more information based on neighbourhood, which may convey more about how Airbnb affect the normal life. With the fully implemented visualizations, more test on functionality and usability should be tested, for example, the layout and UX design of the selection method, to balance the author-driven and reader-driven story and choosing the most appropriate genre.
+</p>
+	</div>
+
+	<div id="Contributions">
+		<h2>Contributions</h2>
+		    <p>All group members are understand every part of the assignment, the main responsible member for the elements of the assignment list below:s</p>
+
+				<table>
+    <tr>
+
+      <th>  </th>
+
+      <td>Price chart</td>
+      <td>Location</td>
+			<td>Average price</td>
+			<td>Filter</td>
+			<td>Explainer</td>
+
+    </tr>
+
+   <tr>
+
+      <th>Yuen Laam Fung</th>
+
+			<td>C/D/F/I</td>
+			<td>C/D/F/I/W</td>
+			<td>C/D/F/I</td>
+			<td>C/D/F/I/W</td>
+			<td>C/D</td>
+
+    </tr>
+
+		<tr>
+
+			 <th>Fie Xie</th>
+
+			 <td>C/D/I/A</td>
+			 <td>C/D/F/A/W</td>
+			 <td>C/D/W</td>
+			 <td>C/D/W</td>
+			 <td>C/D/W</td>
+
+		 </tr>
+
+		 <tr>
+
+				<th>Manlu Xu</th>
+
+			 <td>C/D/I/W</td>
+			 <td>C/D/F/I/W</td>
+			 <td>C/D/I</td>
+			 <td>C/D/F/I</td>
+			 <td>C/D/W</td>
+
+			</tr>
+
+  </table>
+
+	<ul>
+	  <li>Collecting information (C)</li>
+	  <li>Discussion (D)</li>
+	  <li>Figure making (F)</li>
+		<li>Interacting (I)</li>
+		<li>Animation (A)</li>
+		<li>Writing (W)</li>
+  </ul>
+
+	</div>
+
+
+
+
+  </body>
+</html>
